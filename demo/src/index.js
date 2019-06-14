@@ -1,13 +1,23 @@
 import _ from 'lodash';
-import './style.css';
-import './style.scss';
+import './resources/css/style.css';
+import './resources/css/style.scss';
+import github from './resources/images/github.png';
 
 function component() {
   let element = document.createElement('div');
+  element.setAttribute('id', 'main');
 
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  let p = document.createElement('p');
+  p.innerHTML = _.join(['Hello', 'webpack', '!'], ' ');
+  p.classList.add('hello');
 
-  element.classList.add('hello');
+  let myImg = new Image();
+  myImg.width = 100;
+  myImg.height = 100;
+  myImg.src = github;
+
+  element.appendChild(p);
+  element.appendChild(myImg);
 
   return element;
 }

@@ -58,3 +58,27 @@
 
           删除 node_modules
           重新安装 sudo cnpm i
+
+- 加载 images 图像、fonts 字体
+
+      sudo cnpm i file-loader -D
+
+  - 配置 webpack.config.js：
+
+        module: {
+          rules: [
+            {
+              test: /\.(png|svg|jpg|gif)$/,
+              use: [
+                'file-loader',
+              ]
+            },
+            {
+              test: /\.(woff|woff2|eot|ttf|otf)$/,
+              use: [
+                'file-loader',
+              ]
+            },
+          ]
+        }
+
