@@ -7,6 +7,13 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  resolve: {
+    alias: {
+      Css: path.resolve(__dirname, 'src/resources/css'),
+      Images: path.resolve(__dirname, 'src/resources/images'),
+      Fonts: path.resolve(__dirname, 'src/resources/fonts'),
+    }
+  },
   module: {
     rules: [
       {
