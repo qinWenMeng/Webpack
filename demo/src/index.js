@@ -1,5 +1,6 @@
 // import './resources/css/style.css';
 import 'Css/style.css';
+import 'Css/index.scss';
 import greet from './components/greet/greet.js';
 import github from './components/github/github.js';
 
