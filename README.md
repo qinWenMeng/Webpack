@@ -207,3 +207,60 @@
         console.log('Example app listening on port 9000!\n');
       });
 
+    package.json 配置 npm scripts > server
+
+    启动：`npm run server`
+
+- 模块热替换
+
+    - 启用 HMR
+
+      webpack.config.js:
+
+          const webpack = require('webpack');
+
+          devServer: {
+            hot: true
+          },
+          plugins: [
+            new webpack.HotModuleReplacementPlugin()
+          ],
+
+      修改 index.js 文件，以便在 print.js 内部发生变更时，告诉 webpack 接受 updated module。
+
+          if (module.hot) {
+            module.hot.accept('./print.js', function () {
+              console.log('%c Accepting the updated printMe module!', 'color:red;');
+              printMe();
+            })
+          }
+
+    - 通过 Node.js API
+
+      `在 Node.js API 中使用 webpack dev server 时，不要将 dev server 选项放在 webpack 配置对象(webpack config object)中。而是，在创建时，将其作为第二个参数传递。`
+
+      `例如：new WebpackDevServer(compiler, options)`
+
+      新建dev-server.js：
+
+          const webpackDevServer = require('webpack-dev-server');
+          const webpack = require('webpack');
+
+          const config = require('./webpack.config.js');
+          const options = {
+            contentBase: './dist',
+            hot: true,
+            host: 'localhost'
+          };
+
+          webpackDevServer.addDevServerEntrypoints(config, options);
+          const compiler = webpack(config);
+          const server = new webpackDevServer(compiler, options);
+
+          server.listen(9000, 'localhost', () => {
+            console.log('dev server listening on port 9000');
+          });
+
+      package.json 配置 npm scripts > devServer
+
+      启动：`npm run devServer`

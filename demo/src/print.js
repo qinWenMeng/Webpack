@@ -1,4 +1,4 @@
-function printMe() {
+/* function printMe() {
   console.log('I get called from print.js!');
 }
 
@@ -16,3 +16,8 @@ function component() {
 }
 
 document.body.appendChild(component());
+ */
+
+export default function printMe() {
+  console.log('%c I get called from print.js!', 'color: blue;');
+}
