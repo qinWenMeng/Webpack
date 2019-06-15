@@ -144,3 +144,34 @@
   `官方文档上是 const CleanWebpackPlugin = require('clean-webpack-plugin');`
 
   `npm run build 的时候会报错：CleanWebpackPlugin is not a constructor`
+
+- 使用 source map
+
+  `追踪到 error(错误) 和 warning(警告) 在源代码中的原始位置`
+
+  webpack.config.js:
+
+      mode: 'development',
+      devtool: 'inline-source-map',
+
+- 使用 webpack-dev-server
+
+  `提供一个简单的 web server，并且具有 live reloading(实时重新加载) 功能。`
+
+      sudo cnpm i webpack-dev-server -D
+
+  webpack.config.js:
+
+      devServer: {
+        contentBase: './dist'
+      },
+
+  `以上配置告知 webpack-dev-server，将 dist 目录下的文件 serve 到 localhost:8080 下。`
+
+  package.json:
+
+      "scripts": {
+        "start": "webpack-dev-server --open",
+      },
+
+  `在命令行中运行 npm start，浏览器自动加载页面。更改任何源文件并保存它们，web server 将在编译代码后自动重新加载。`
