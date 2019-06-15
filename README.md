@@ -128,3 +128,19 @@
           title: 'Webpack-demo'
         })
       ],
+- 清理 /dist 文件夹
+
+      sudo cnpm i clean-webpack-plugin -D
+
+  webpack.config.js:
+
+      const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+      plugins: [
+        new CleanWebpackPlugin(),
+      ],
+
+  注：
+  `官方文档上是 const CleanWebpackPlugin = require('clean-webpack-plugin');`
+
+  `npm run build 的时候会报错：CleanWebpackPlugin is not a constructor`
