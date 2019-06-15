@@ -82,3 +82,49 @@
           ]
         }
 
+- resolve.alias
+
+  `创建 import 或 require 的别名，来确保模块引入变得更简单。`
+
+  wepack.config.js:
+
+      const path = require('path');
+
+      resolve: {
+        alias: {
+          Name: path.resolve(__dirname, 'src/PATH'),
+        }
+      },
+
+- 配置输出目录, 多入口文件
+
+  webpack.config.js:
+
+      const path = require('path');
+
+      // entry: './src/index.js',
+      entry: {
+        app: './src/index.js',
+        print: './src/print.js'
+      },
+      output: {
+        // filename: 'bundle.js',
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+      },
+
+- 设置 HtmlWebpackPlugin
+
+  `HtmlWebpackPlugin 还是会默认生成它自己的 index.html 文件`
+
+      sudo cnpm i html-webpack-plugin -D
+
+  webpack.config.js:
+
+      const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+      plugins: [
+        new HtmlWebpackPlugin({
+          title: 'Webpack-demo'
+        })
+      ],
