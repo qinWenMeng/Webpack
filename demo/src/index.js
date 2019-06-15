@@ -6,7 +6,7 @@ import github from './components/github/github.js';
 
 function component() {
   let element = document.createElement('div');
-  element.setAttribute('id', 'main');
+  element.setAttribute('id', 'app');
 
   element.appendChild(greet);
   element.appendChild(github);
