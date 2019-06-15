@@ -175,3 +175,35 @@
       },
 
   `在命令行中运行 npm start，浏览器自动加载页面。更改任何源文件并保存它们，web server 将在编译代码后自动重新加载。`
+
+- 使用 webpack-dev-middleware
+
+      sudo cnpm i express webpack-dev-middleware -D
+
+  webpack.config.js:
+
+      output: {
+        publicPath: '/'
+      }
+
+  新建 server.js
+
+      const express = require('express');
+      const webpack = require('webpack');
+      const webpackDevMiddleware = require('webpack-dev-middleware');
+
+      const app = express();
+      const config = require('./webpack.config.js');
+      const compiler = webpack(config);
+
+      // 告诉 express 使用 webpack-dev-middleware，
+      // 以及将 webpack.config.js 配置文件作为基础配置
+      app.use(webpackDevMiddleware(compiler, {
+        publicPath: config.output.publicPath
+      }));
+
+      // 将文件 serve 到 port 9000。
+      app.listen(9000, function () {
+        console.log('Example app listening on port 9000!\n');
+      });
+
