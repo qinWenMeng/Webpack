@@ -284,3 +284,24 @@
         /* optimization: {
           usedExports: true
         }, */
+
+- 生产环境
+
+      sudo cnpm i webpack-merge -D
+
+  新建配置文件：
+
+      webpack.common.js // 公用配置
+      webpack.dev.js // 开发配置
+      webpack.prod.js // 生产配置
+
+  合并配置：
+
+      module.exports = merge(common, {...});
+
+  package.json 修改 scripts:
+
+      "scripts": {
+        "start": "webpack-dev-server --open --config webpack.dev.js",
+        "build": "webpack --config webpack.prod.js"
+      }
