@@ -1,12 +1,12 @@
 # webpack practice!
 
-- 初始化项目
+- 🎈初始化项目
 
         mkdir webpack-demo && cd webpack-demo
         npm init 或 npm init -y
         sudo cnpm i webpack webpack-cli -D
 
-- 创建目录
+- 🎈创建目录
 
         webpack-demo
         |- package.json
@@ -16,7 +16,7 @@
         |- /src
           |- index.js
 
-- 构建项目
+- 🎈构建项目
 
         npx webpack
 
@@ -26,7 +26,7 @@
 
   `注：如果 webpack.config.js 存在，则 webpack 命令将默认选择使用它。我们在这里使用 --config 选项只是向你表明，可以传递任何名称的配置文件。这对于需要拆分成多个文件的复杂配置是非常有用。`
 
-- 加载 css | scss
+- 🎈加载 css | scss
 
       sudo cnpm i style-loader css-loader -D
       sudo cnpm i node-sass sass-loader webpack -D
@@ -59,7 +59,7 @@
           删除 node_modules
           重新安装 sudo cnpm i
 
-- 加载 images 图像、fonts 字体
+- 🎈加载 images 图像、fonts 字体
 
       sudo cnpm i file-loader -D
 
@@ -82,7 +82,7 @@
           ]
         }
 
-- resolve.alias
+- 🎈resolve.alias
 
   `创建 import 或 require 的别名，来确保模块引入变得更简单。`
 
@@ -96,7 +96,7 @@
         }
       },
 
-- 配置输出目录, 多入口文件
+- 🎈配置输出目录, 多入口文件
 
   webpack.config.js:
 
@@ -113,7 +113,7 @@
         path: path.resolve(__dirname, 'dist')
       },
 
-- 设置 HtmlWebpackPlugin
+- 🎈设置 HtmlWebpackPlugin
 
   `HtmlWebpackPlugin 还是会默认生成它自己的 index.html 文件`
 
@@ -128,7 +128,7 @@
           title: 'Webpack-demo'
         })
       ],
-- 清理 /dist 文件夹
+- 🎈清理 /dist 文件夹
 
       sudo cnpm i clean-webpack-plugin -D
 
@@ -145,7 +145,7 @@
 
   `npm run build 的时候会报错：CleanWebpackPlugin is not a constructor`
 
-- 使用 source map
+- 🎈使用 source map
 
   `追踪到 error(错误) 和 warning(警告) 在源代码中的原始位置`
 
@@ -154,7 +154,7 @@
       mode: 'development',
       devtool: 'inline-source-map',
 
-- 使用 webpack-dev-server
+- 🎈使用 webpack-dev-server
 
   `提供一个简单的 web server，并且具有 live reloading(实时重新加载) 功能。`
 
@@ -176,7 +176,7 @@
 
   `在命令行中运行 npm start，浏览器自动加载页面。更改任何源文件并保存它们，web server 将在编译代码后自动重新加载。`
 
-- 使用 webpack-dev-middleware
+- 🎈使用 webpack-dev-middleware
 
       sudo cnpm i express webpack-dev-middleware -D
 
@@ -211,7 +211,7 @@
 
     启动：`npm run server`
 
-- 模块热替换
+- 🎈模块热替换
 
     - 启用 HMR
 
@@ -264,3 +264,23 @@
       package.json 配置 npm scripts > devServer
 
       启动：`npm run devServer`
+
+- 🎈找出需要删除的“未引用代码(dead code)”，在 bundle 中删除它们。
+  - 将文件标记为 side-effect-free(无副作用)
+
+      package.json:
+
+        "sideEffects": [
+          // "./src/some-side-effectful-file.js",
+          "*.css",
+          "*.scss"
+        ]
+
+  - 压缩输出结果
+
+      webpack.config.js:
+
+        mode: 'production',
+        /* optimization: {
+          usedExports: true
+        }, */
