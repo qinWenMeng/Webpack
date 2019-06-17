@@ -17,7 +17,8 @@ function component() {
 
 document.body.appendChild(component());
  */
-
+import { cube } from './math.js';
 export default function printMe() {
   console.log('%c I get called from print.js!', 'color: blue;');
+  console.log('%c unused harmony export:', 'color: red;', cube(2));
 }
