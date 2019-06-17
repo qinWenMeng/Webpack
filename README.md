@@ -305,3 +305,15 @@
         "start": "webpack-dev-server --open --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js"
       }
+
+- 代码分离
+
+  - 防止重复
+
+    webpack.config.js:
+
+      optimization: {
+        splitChunks: {
+          chunks: 'all'
+        }
+      },
