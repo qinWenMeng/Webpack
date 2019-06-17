@@ -18,7 +18,7 @@ module.exports = {
   // entry: './src/index.js',
   entry: {
     app: './src/index.js',
-    // print: './src/print.js',
+    print: './src/print.js',
   },
   output: {
     // filename: 'main.js',
@@ -27,6 +27,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     // publicPath: '/',
     publicPath: '/webpack/',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   resolve: {
     alias: {
