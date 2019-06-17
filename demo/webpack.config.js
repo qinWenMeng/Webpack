@@ -8,13 +8,13 @@ module.exports = {
   /* mode: 'development', // 开发模式,打包出来的bundle不压缩代码
   optimization: {
     usedExports: true // 打包出来的bundle里注释 导出但未引用的 export
-  }, */
-  mode: 'production', // 删除的“未引用代码(dead code)” 压缩代码
+  },
   devtool: 'inline-source-map', // 浏览器报错定位到源文件
   devServer: {
     contentBase: './dist',
     hot: true
-  },
+  }, */
+  mode: 'production', // 删除的“未引用代码(dead code)” 压缩代码
   // entry: './src/index.js',
   entry: {
     app: './src/index.js',
