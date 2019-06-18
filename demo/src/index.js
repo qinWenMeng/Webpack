@@ -41,7 +41,6 @@ if (module.hot) {
 //   }).catch(error => 'An error occurred while loading the component');
 // }
 
-import './components/greet/greet.js';
 // import() 会返回一个 promise，因此它可以和 async 函数一起使用。
 async function getComponent() {
   let element = document.createElement('div');
