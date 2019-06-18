@@ -344,3 +344,29 @@
         }
 
         name().then(text => {...});
+
+- 缓存
+
+  `注：此项在应在生产环境下配置`
+
+  webpack.config.js:
+
+      output: {
+        filename: '[name].[contenthash].js',
+      }
+
+  - 问题：
+    - 开发环境下配置缓存会报错
+
+          ERROR in chunk app [entry]
+
+          [name].[contenthash].js
+
+          Cannot use [chunkhash] or [contenthash] for chunk in '[name].[contenthash].js' (use [hash] instead)
+
+    - 解决办法：
+
+          注释掉热更新plugin即可
+          或
+          将 contenthash 换成 hash
+

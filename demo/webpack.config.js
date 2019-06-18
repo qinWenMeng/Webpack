@@ -24,6 +24,7 @@ module.exports = {
     // filename: 'main.js',
     // filename: 'bundle.js',
     filename: '[name].bundle.js',
+    // filename: '[name].[contenthash].js', // 生产环境下的配置
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
