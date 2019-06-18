@@ -171,10 +171,10 @@
   package.json:
 
       "scripts": {
-        "start": "webpack-dev-server --open",
+        "start": "webpack-dev-server --open 'google chrome'",
       },
 
-  `在命令行中运行 npm start，浏览器自动加载页面。更改任何源文件并保存它们，web server 将在编译代码后自动重新加载。`
+  `在命令行中运行 npm start，自动打开Google浏览器加载页面。更改任何源文件并保存它们，web server 将在编译代码后自动重新加载。`
 
 - 🎈使用 webpack-dev-middleware
 
