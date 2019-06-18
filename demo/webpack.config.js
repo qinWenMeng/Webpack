@@ -18,21 +18,22 @@ module.exports = {
   // entry: './src/index.js',
   entry: {
     app: './src/index.js',
-    print: './src/print.js',
+    // print: './src/print.js',
   },
   output: {
     // filename: 'main.js',
     // filename: 'bundle.js',
     filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     // publicPath: '/webpack/',
   },
-  optimization: {
+  /* optimization: {
     splitChunks: {
       chunks: 'all'
     }
-  },
+  }, */
   resolve: {
     alias: {
       Css: path.resolve(__dirname, 'src/resources/css'),

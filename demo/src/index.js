@@ -1,4 +1,4 @@
-// import './resources/css/style.css';
+/* // import './resources/css/style.css';
 import 'Css/style.css';
 import 'Css/index.scss';
 import greet from './components/greet/greet.js';
@@ -31,3 +31,26 @@ if (module.hot) {
     document.body.appendChild(element);
   })
 }
+ */
+
+/* function getComponent() {
+  return import('lodash').then(({ default: _ }) => {
+    let element = document.createElement('div');
+    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    return element;
+  }).catch(error => 'An error occurred while loading the component');
+} */
+
+
+import './components/greet/greet.js';
+// import() 会返回一个 promise，因此它可以和 async 函数一起使用。
+async function getComponent() {
+  let element = document.createElement('div');
+  const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
+  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+  return element;
+}
+
+getComponent().then(component => {
+  document.body.appendChild(component);
+});

@@ -312,11 +312,35 @@
 
     webpack.config.js:
 
-      optimization: {
-        splitChunks: {
-          chunks: 'all'
-        }
-      },
+        entry: {
+          app: './src/index.js',
+          print: './src/print.js',
+        },
+        optimization: {
+          splitChunks: {
+            chunks: 'all'
+          }
+        },
 
   - 动态导入
 
+    webpack.config.js:
+        entry: {
+          app: './src/index.js',
+        },
+        output: {
+          chunkFilename: '[name].bundle.js',
+        },
+
+    `import() 语法 来实现动态导入。`
+
+        import(/* webpackChunkName: "lodash" */'lodash').then(({ default: _ }) => {...}
+
+        或
+
+        async function name() {
+          const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
+          return _.join(['Hello', 'webpack'], ' ');
+        }
+
+        name().then(text => {...});
