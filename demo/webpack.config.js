@@ -25,8 +25,8 @@ module.exports = {
     // filename: 'bundle.js',
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    // publicPath: '/',
-    publicPath: '/webpack/',
+    publicPath: '/',
+    // publicPath: '/webpack/',
   },
   optimization: {
     splitChunks: {

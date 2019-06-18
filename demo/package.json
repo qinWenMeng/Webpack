@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "start": "webpack-dev-server --open 'google chrome' --config webpack.dev.js",
     "server": "node server.js",
     "devServer": "node dev-server.js",
     "build": "webpack --config webpack.prod.js"

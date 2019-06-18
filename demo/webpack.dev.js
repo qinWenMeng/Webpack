@@ -13,8 +13,8 @@ module.exports = merge(common, {
     hot: true
   },
   output: {
-    // publicPath: '/',
-    publicPath: '/webpack/',
+    publicPath: '/',
+    // publicPath: '/webpack/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // 热更新
