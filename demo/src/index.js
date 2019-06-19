@@ -43,10 +43,15 @@ if (module.hot) {
 
 // import() 会返回一个 promise，因此它可以和 async 函数一起使用。
 async function getComponent() {
-  let element = document.createElement('div');
+  let element = document.createElement('button');
 
   const { default: _ } = await import(/* webpackChunkName: "lodash" */ 'lodash');
   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+
+  element.onclick = e => import(/* webpackChunkName: "lazyLoad" */ './lazyLoad').then(module => {
+    var print = module.default;
+    print();
+  });
 
   return element;
 }
