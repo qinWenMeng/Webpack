@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --open 'google chrome' --config webpack.dev.js",
+    "start": "webpack-dev-server --config webpack.dev.js --open chrome",
     "server": "node server.js",
     "build": "webpack --config webpack.prod.js",
     "devServer": "node dev-server.js",
@@ -37,5 +37,10 @@
   "sideEffects": [
     "*.css",
     "*.scss"
-  ]
+  ],
+  "eslintConfig": {
+    "globals": {
+      "_": true
+    }
+  }
 }

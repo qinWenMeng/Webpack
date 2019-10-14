@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './greet.scss';
 
 let p = document.createElement('p');
